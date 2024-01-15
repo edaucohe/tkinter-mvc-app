@@ -1,8 +1,7 @@
 import tkinter as tk
-from tkinter import ttk
 
-from tkinter_mvc_app.books.views.views import BookFrame
-from tkinter_mvc_app.root.const import APP_NAME, WIDTH, HEIGHT
+from tkinter_mvc_app.books.views.tabs import BookTab
+from tkinter_mvc_app.services.const import APP_NAME, WIDTH, HEIGHT
 
 
 class Root(tk.Tk):
@@ -16,9 +15,9 @@ class Root(tk.Tk):
         self.geometry(f"{width}x{height}")
         self.minsize(min_width, min_height)
 
-        # Frames
-        self.book_frame = BookFrame(self)
-        self.book_frame.grid(row=0, column=0, sticky="nsew")
+        # Tabs
+        self.book_tab = BookTab(self)
+        self.book_tab.pack(side="top", fill="x")
 
 
 class MainView:
