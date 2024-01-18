@@ -5,7 +5,7 @@ from datetime import date
 from typing import List, Optional, Dict, get_type_hints, get_origin
 
 from tkinter_mvc_app.books.models.my_enums import Language, Genre
-from tkinter_mvc_app.services.const import FIRST_MEMBER_POS, ATTR_POS
+from tkinter_mvc_app.helpers.const import FIRST_MEMBER_POS, ATTR_POS
 
 
 @dataclass
