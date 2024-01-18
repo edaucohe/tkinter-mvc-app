@@ -1,7 +1,7 @@
 import tkinter as tk
 
 from tkinter_mvc_app.books.views.tabs import BookTab
-from tkinter_mvc_app.services.const import APP_NAME, WIDTH, HEIGHT
+from tkinter_mvc_app.helpers.const import APP_NAME, WIDTH, HEIGHT
 
 
 class Root(tk.Tk):

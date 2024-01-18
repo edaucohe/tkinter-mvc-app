@@ -1,7 +1,7 @@
 from tkinter import ttk
 
 from tkinter_mvc_app.books.models.models import Book
-from tkinter_mvc_app.services.frames_creation import create_frames
+from tkinter_mvc_app.helpers.frames_creation import create_frames
 
 
 class BookFrame(ttk.Frame):
