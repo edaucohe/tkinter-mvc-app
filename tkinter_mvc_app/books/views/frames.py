@@ -1,7 +1,7 @@
 from tkinter import ttk
 
 from tkinter_mvc_app.books.models.models import Book
-from tkinter_mvc_app.helpers.frames_creation import create_frames
+from tkinter_mvc_app.helpers.widgets_creation import create_widgets
 
 
 class BookFrame(ttk.Frame):
@@ -15,9 +15,9 @@ class BookFrame(ttk.Frame):
         # self.grid_rowconfigure(index=(0, 1, 2, 3, 4, 5), weight=1)
 
         # Create labels and entries
-        create_frames(ttk=ttk,
-                      frame=self,
-                      model_attribut_names=Book.get_attribut_names)
+        create_widgets(ttk=ttk,
+                       frame=self,
+                       model_attribut_names=Book.get_attribut_names)
 
         # # Title widget
         # self.title_label = ttk.Label(self, text="Título", background="red")
