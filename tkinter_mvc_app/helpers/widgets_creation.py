@@ -1,7 +1,9 @@
 from typing import Dict
 
 
-def create_frames(ttk, frame, model_attribut_names):
+def create_widgets(ttk, frame, model_attribut_names):
+    # TODO To be sure about what parameters are necessaries to this functions
+    #  and conditions for creating widgets correctly.
     attributs: Dict = model_attribut_names()
     print("Atributos: ", attributs)
     for index, attribut in attributs.items():
@@ -17,5 +19,3 @@ def create_frames(ttk, frame, model_attribut_names):
             # Create entries
             entry = ttk.Entry(frame)
             entry.grid(row=index, column=1, sticky="nsew")
-
-# create_frames()
