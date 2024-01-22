@@ -15,9 +15,17 @@ class BookFrame(ttk.Frame):
         # self.grid_rowconfigure(index=(0, 1, 2, 3, 4, 5), weight=1)
 
         # Create labels and entries
-        create_widgets(ttk=ttk,
-                       frame=self,
-                       model_attribut_names=Book.get_attribut_names)
+        self.widgets = create_widgets(ttk=ttk,
+                                      frame=self,
+                                      model_attribut_names=Book.get_attribut_names)
+
+        print(self.widgets)
+
+        # Create button
+        self.save_button = ttk.Button(master=self, text="Guardar libro")
+        self.button_row_idx = len(Book.get_attribut_names())
+        self.save_button.grid(row=self.button_row_idx, column=0, sticky="nsew")
+
 
         # # Title widget
         # self.title_label = ttk.Label(self, text="Título", background="red")

@@ -11,7 +11,7 @@ from tkinter_mvc_app.helpers.const import FIRST_MEMBER_POS, ATTR_POS
 @dataclass
 class Book:
     title: str
-    authors: List[str]
+    author: str
     synopsis: str
     genre: Genre
     publisher: str = "Desconocido"
