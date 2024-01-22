@@ -15,6 +15,8 @@
 "Tkinter MVC App" aims to use, learn and practice GUI applications with tkinter
 and implement them with MVC architecture.
 
+For this purpose, I'm going to implement an application to save book information.
+
 ## Installation <a class="anchor" id="installation"></a>
 
 Python version : 3.9.4
