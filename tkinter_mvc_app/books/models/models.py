@@ -2,7 +2,7 @@ import dataclasses
 import inspect
 from dataclasses import dataclass
 from datetime import date
-from typing import List, Optional, Dict, get_type_hints, get_origin
+from typing import List, Optional, Dict, get_type_hints, get_origin, Any
 
 from tkinter_mvc_app.books.models.my_enums import Language, Genre
 from tkinter_mvc_app.helpers.const import FIRST_MEMBER_POS, ATTR_POS
@@ -59,6 +59,21 @@ class Book:
             attributs[index] = attribut_name, attribut_value
 
         return attributs
+
+    @classmethod
+    def from_widgets(cls, widgets: List[Any]):
+        new_widgets = {}
+        widgets[3][1] = Genre(widgets[3][1].get())
+        print(widgets[3][0])
+        print(widgets[3][1])
+
+        new_widgets["title"] = widgets[0][1].get()
+        new_widgets["author"] = widgets[1][1].get()
+        new_widgets["synopsis"] = widgets[2][1].get()
+        new_widgets["genre"] = widgets[3][1]
+
+        return cls(**new_widgets)
+
 
 
 # book = Book(title="El conde de montecristo",
