@@ -3,14 +3,20 @@ from tkinter import ttk
 from tkinter_mvc_app.books.views.frames import BookFrame
 
 
-class BookTab(ttk.Notebook):
+class Tab(ttk.Notebook):
     def __init__(self, parent):
         super().__init__(parent)
 
-        # Create book frame
-        self.book_frame = BookFrame(self)
-        self.book_frame.grid(row=0, column=0, sticky="nsew")
-        self.add(self.book_frame, text="Libros")
+        # Create book tab
+        self.book_tab = BookFrame(self)
+        self.book_tab.grid(row=0, column=0, sticky="nsew")
+        self.add(self.book_tab, text="Libros")
+
+        # Create another tab
+        self.another_tab = BookFrame(self)
+        self.another_tab.grid(row=0, column=0, sticky="nsew")
+        self.add(self.another_tab, text="Otra pestaña")
+
 
 #         # Create boardgame frame
 #         self.boardgame_frame = BoardgameFrame(self)
