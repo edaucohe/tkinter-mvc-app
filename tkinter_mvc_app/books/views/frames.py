@@ -22,7 +22,7 @@ class BookFrame(ttk.Frame):
         print(self.widgets)
 
         # Create button
-        self.save_button = ttk.Button(master=self, text="Guardar libro")
+        self.save_button = ttk.Button(master=self, text="Save book")
         self.button_row_idx = len(Book.get_attribut_names())
         self.save_button.grid(row=self.button_row_idx, column=0, sticky="nsew")
 
@@ -38,3 +38,66 @@ class BookFrame(ttk.Frame):
         # self.author_label.grid(row=1, column=0, sticky="nsew")
         # self.author_input = ttk.Entry(self)
         # self.author_input.grid(row=1, column=1, sticky="nsew")
+
+
+class BookUpdate(ttk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        # Setup book grid
+        self.grid_columnconfigure(index=0, weight=0)
+        self.grid_columnconfigure(index=1, weight=1)
+        self.grid_columnconfigure(index=2, weight=2)
+
+        # Title widget
+        self.title_label = ttk.Label(self, text="Title", background="cyan")
+        self.title_label.grid(row=0, column=0, sticky="nsew")
+        self.title_input = ttk.Entry(self)
+        self.title_input.grid(row=0, column=1, sticky="nsew")
+
+        # Create button
+        self.save_button = ttk.Button(master=self, text="Update book")
+        self.button_row_idx = len(Book.get_attribut_names())
+        self.save_button.grid(row=self.button_row_idx, column=0, sticky="nsew")
+
+
+class BookRetrieve(ttk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        # Setup book grid
+        self.grid_columnconfigure(index=0, weight=0)
+        self.grid_columnconfigure(index=1, weight=1)
+        self.grid_columnconfigure(index=2, weight=2)
+
+        # Title widget
+        self.title_label = ttk.Label(self, text="Title", background="white")
+        self.title_label.grid(row=0, column=0, sticky="nsew")
+        self.title_input = ttk.Entry(self)
+        self.title_input.grid(row=0, column=1, sticky="nsew")
+
+        # Create button
+        self.save_button = ttk.Button(master=self, text="Retrieve book")
+        self.button_row_idx = len(Book.get_attribut_names())
+        self.save_button.grid(row=self.button_row_idx, column=0, sticky="nsew")
+
+
+class BookDelete(ttk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        # Setup book grid
+        self.grid_columnconfigure(index=0, weight=0)
+        self.grid_columnconfigure(index=1, weight=1)
+        self.grid_columnconfigure(index=2, weight=2)
+
+        # Title widget
+        self.title_label = ttk.Label(self, text="Title", background="yellow")
+        self.title_label.grid(row=0, column=0, sticky="nsew")
+        self.title_input = ttk.Entry(self)
+        self.title_input.grid(row=0, column=1, sticky="nsew")
+
+        # Create button
+        self.save_button = ttk.Button(master=self, text="Delete book")
+        self.button_row_idx = len(Book.get_attribut_names())
+        self.save_button.grid(row=self.button_row_idx, column=0, sticky="nsew")

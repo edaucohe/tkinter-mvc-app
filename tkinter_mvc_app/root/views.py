@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
-from tkinter_mvc_app.books.views.frames import BookFrame
+from tkinter_mvc_app.books.views.frames import BookFrame, BookUpdate, \
+    BookRetrieve, BookDelete
 from tkinter_mvc_app.helpers.const import APP_NAME, WIDTH, HEIGHT
 
 
@@ -24,12 +25,22 @@ class Tabs(ttk.Notebook):
         # Create book tab
         self.book_tab = BookFrame(self)
         self.book_tab.grid(row=0, column=0, sticky="nsew")
-        self.add(self.book_tab, text="Libros")
+        self.add(self.book_tab, text="Save book")
 
-        # Create another tab
-        self.another_tab = BookFrame(self)
+        # Update book tab
+        self.another_tab = BookUpdate(self)
         self.another_tab.grid(row=0, column=0, sticky="nsew")
-        self.add(self.another_tab, text="Otra pestaña")
+        self.add(self.another_tab, text="Update book")
+
+        # Retrieve book tab
+        self.another_tab = BookRetrieve(self)
+        self.another_tab.grid(row=0, column=0, sticky="nsew")
+        self.add(self.another_tab, text="Retrieve book")
+
+        # Delete book tab
+        self.another_tab = BookDelete(self)
+        self.another_tab.grid(row=0, column=0, sticky="nsew")
+        self.add(self.another_tab, text="Delete book")
 
 
 class MainView:
