@@ -2,7 +2,7 @@ from tkinter_mvc_app.books.views.inputs import BookInputs
 from tkinter_mvc_app.root.views import MainView
 
 
-class SaveBookController:
+class BookController:
     def __init__(self, view: MainView):
         self.view = view
         self.book_save_button = view.gui_setup.tabs.book_tab.save_button
