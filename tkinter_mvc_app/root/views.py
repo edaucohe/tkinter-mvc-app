@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
-from tkinter_mvc_app.books.views.frames import BookFrame, BookUpdate, \
-    BookRetrieve, BookDelete
+from tkinter_mvc_app.books.views.tabs \
+    import BookSavedTab, BookUpdatedTab, BookRetrievedTab, BookDeletedTab
 from tkinter_mvc_app.helpers.const import APP_NAME, WIDTH, HEIGHT
 
 
@@ -22,25 +22,25 @@ class Tabs(ttk.Notebook):
     def __init__(self, parent):
         super().__init__(parent)
 
-        # Create book tab
-        self.book_tab = BookFrame(self)
-        self.book_tab.grid(row=0, column=0, sticky="nsew")
-        self.add(self.book_tab, text="Save book")
+        # Saved book tab
+        self.saved_book_tab = BookSavedTab(self)
+        self.saved_book_tab.grid(row=0, column=0, sticky="nsew")
+        self.add(self.saved_book_tab, text="Save book")
 
-        # Update book tab
-        self.another_tab = BookUpdate(self)
-        self.another_tab.grid(row=0, column=0, sticky="nsew")
-        self.add(self.another_tab, text="Update book")
+        # Updated book tab
+        self.updated_books_tab = BookUpdatedTab(self)
+        self.updated_books_tab.grid(row=0, column=0, sticky="nsew")
+        self.add(self.updated_books_tab, text="Update book")
 
-        # Retrieve book tab
-        self.another_tab = BookRetrieve(self)
-        self.another_tab.grid(row=0, column=0, sticky="nsew")
-        self.add(self.another_tab, text="Retrieve book")
+        # Retrieved book tab
+        self.retrieved_book_tab = BookRetrievedTab(self)
+        self.retrieved_book_tab.grid(row=0, column=0, sticky="nsew")
+        self.add(self.retrieved_book_tab, text="Retrieve book")
 
-        # Delete book tab
-        self.another_tab = BookDelete(self)
-        self.another_tab.grid(row=0, column=0, sticky="nsew")
-        self.add(self.another_tab, text="Delete book")
+        # Deleted book tab
+        self.deleted_book_tab = BookDeletedTab(self)
+        self.deleted_book_tab.grid(row=0, column=0, sticky="nsew")
+        self.add(self.deleted_book_tab, text="Delete book")
 
 
 class MainView:
