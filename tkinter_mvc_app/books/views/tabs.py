@@ -4,7 +4,7 @@ from tkinter_mvc_app.books.models.models import Book
 from tkinter_mvc_app.helpers.widgets_creation import create_widgets
 
 
-class BookFrame(ttk.Frame):
+class BookSavedTab(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
 
@@ -15,11 +15,23 @@ class BookFrame(ttk.Frame):
         # self.grid_rowconfigure(index=(0, 1, 2, 3, 4, 5), weight=1)
 
         # Create labels and entries
-        self.widgets = create_widgets(ttk=ttk,
-                                      frame=self,
-                                      model_attribut_names=Book.get_attribut_names)
+        # self.widgets = create_widgets(ttk=ttk,
+        #                               frame=self,
+        #                               model_attribut_names=Book.get_attribut_names)
 
-        print(self.widgets)
+        # print(self.widgets)
+
+        # Title widget
+        self.title_label = ttk.Label(self, text="Título", background="red")
+        self.title_label.grid(row=0, column=0, sticky="nsew")
+        self.title_input = ttk.Entry(self)
+        self.title_input.grid(row=0, column=1, sticky="nsew")
+
+        # Author widget
+        self.author_label = ttk.Label(self, text="Autor", background="yellow")
+        self.author_label.grid(row=1, column=0, sticky="nsew")
+        self.author_input = ttk.Entry(self)
+        self.author_input.grid(row=1, column=1, sticky="nsew")
 
         # Create button
         self.save_button = ttk.Button(master=self, text="Save book")
@@ -27,20 +39,7 @@ class BookFrame(ttk.Frame):
         self.save_button.grid(row=self.button_row_idx, column=0, sticky="nsew")
 
 
-        # # Title widget
-        # self.title_label = ttk.Label(self, text="Título", background="red")
-        # self.title_label.grid(row=0, column=0, sticky="nsew")
-        # self.title_input = ttk.Entry(self)
-        # self.title_input.grid(row=0, column=1, sticky="nsew")
-        #
-        # # Author widget
-        # self.author_label = ttk.Label(self, text="Autor", background="yellow")
-        # self.author_label.grid(row=1, column=0, sticky="nsew")
-        # self.author_input = ttk.Entry(self)
-        # self.author_input.grid(row=1, column=1, sticky="nsew")
-
-
-class BookUpdate(ttk.Frame):
+class BookUpdatedTab(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
 
@@ -61,7 +60,7 @@ class BookUpdate(ttk.Frame):
         self.save_button.grid(row=self.button_row_idx, column=0, sticky="nsew")
 
 
-class BookRetrieve(ttk.Frame):
+class BookRetrievedTab(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
 
@@ -82,7 +81,7 @@ class BookRetrieve(ttk.Frame):
         self.save_button.grid(row=self.button_row_idx, column=0, sticky="nsew")
 
 
-class BookDelete(ttk.Frame):
+class BookDeletedTab(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
 

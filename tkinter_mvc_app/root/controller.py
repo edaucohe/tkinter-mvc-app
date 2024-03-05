@@ -1,6 +1,6 @@
 from tkinter_mvc_app.books.controllers.book_controller import BookController
 from tkinter_mvc_app.books.models.models import Book
-from tkinter_mvc_app.books.views.frames import BookFrame
+from tkinter_mvc_app.books.views.tabs import BookSavedTab
 from tkinter_mvc_app.root.views import MainView
 
 
