@@ -132,7 +132,6 @@ class BookSavedTab(ttk.Frame):
         self.already_read_value = tk.BooleanVar()
         self.already_read_check_button = ttk.Checkbutton(self, variable=self.already_read_value)
         self.already_read_check_button.grid(row=12, column=1, sticky="nsew")
-
         # Is current book widget
         self.is_current_book_label = ttk.Label(self,
                                                text=book_attributs["formatted_name"][14],
