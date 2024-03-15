@@ -1,4 +1,6 @@
+from tkinter_mvc_app.books.models.models import Book
 from tkinter_mvc_app.books.views.inputs import BookInputs
+from tkinter_mvc_app.helpers.get_attribut_names import book_attributs, book_attr_name
 from tkinter_mvc_app.root.views import MainView
 
 
@@ -16,9 +18,28 @@ class BookController:
         self.saved_book_button.config(command=self.save_book_info)
 
     def save_book_info(self):
+        # book_attr_name = list(book_attributs.keys())
+        print("book attr: ", book_attributs)
+
+        print(book_attr_name)
+        print(len(book_attr_name))
+
         book_data = {
-            "title": self.saved_book_tab.title_input.get(),
-            "author": self.saved_book_tab.author_input.get(),
+            book_attributs["original_name"][0]: self.saved_book_tab.title_input.get(),
+            book_attributs["original_name"][1]: self.saved_book_tab.author_input.get(),
+            book_attributs["original_name"][2]: self.saved_book_tab.synopsis_input.get(),
+            book_attributs["original_name"][3]: self.saved_book_tab.genre_input.get(),
+            book_attributs["original_name"][4]: self.saved_book_tab.publisher_input.get(),
+            book_attributs["original_name"][5]: self.saved_book_tab.original_language_input.get(),
+            book_attributs["original_name"][6]: self.saved_book_tab.book_language_input.get(),
+            book_attributs["original_name"][7]: self.saved_book_tab.number_of_pages_input.get(),
+            book_attributs["original_name"][8]: self.saved_book_tab.current_page_input.get(),
+            # book_attributs["original_name"][9]: self.saved_book_tab.created_date_input.get(),
+            book_attributs["original_name"][10]: self.saved_book_tab.purchase_date_input.get(),
+            book_attributs["original_name"][11]: self.saved_book_tab.publication_date_input.get(),
+            book_attributs["original_name"][12]: self.saved_book_tab.reading_date_input.get(),
+            book_attributs["original_name"][13]: self.saved_book_tab.already_read_value.get(),
+            book_attributs["original_name"][14]: self.saved_book_tab.is_current_book_value.get(),
         }
 
         print("book data: ", book_data)

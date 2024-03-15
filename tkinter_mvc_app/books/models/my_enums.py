@@ -7,6 +7,6 @@ class Genre(Enum):
 
 
 class Language(Enum):
-    SPANISH = "spanish"
-    FRENCH = "french"
-    ENGLISH = "english"
+    SPANISH = "Spanish"
+    FRENCH = "French"
+    ENGLISH = "English"
