@@ -1,6 +1,6 @@
 from tkinter_mvc_app.books.models.models import Book
 from tkinter_mvc_app.books.views.inputs import BookInputs
-from tkinter_mvc_app.helpers.get_attribut_names import book_attributs, book_attr_name
+from tkinter_mvc_app.helpers.get_attribut_names import book_attributs
 from tkinter_mvc_app.root.views import MainView
 
 
@@ -19,10 +19,6 @@ class BookController:
 
     def save_book_info(self):
         # book_attr_name = list(book_attributs.keys())
-        print("book attr: ", book_attributs)
-
-        print(book_attr_name)
-        print(len(book_attr_name))
 
         book_data = {
             book_attributs["original_name"][0]: self.saved_book_tab.title_input.get(),
