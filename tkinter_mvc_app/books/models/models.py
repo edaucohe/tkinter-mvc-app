@@ -31,32 +31,37 @@ class Book:
 
     @classmethod
     def get_attribut_names(cls):
-        # To get type hints of model
-        attribut_types = get_type_hints(cls)
-        if "<class 'bool'>" in attribut_types:
-            print("OK")
-
         attributs = dict()
         members: Dict = inspect.getmembers(cls)[FIRST_MEMBER_POS][ATTR_POS]
-        for index, attribut_name in enumerate(members.keys()):
-            # To place attribut types
-            # attribut_type = attribut_types[attribut_name]
 
-            try:
-                attribut_value = getattr(cls, attribut_name)
-            except AttributeError:
-                attribut_value = None
+        original_names = list()
+        formatted_names = list()
+        for attribut_name in members.keys():
+            # try:
+            #     attribut_value = getattr(cls, attribut_name)
+            # except AttributeError:
+            #     attribut_value = None
 
             # attribut_type_hint = get_origin(attribut_type)
 
             # To capitalize names
-            attribut_name = attribut_name.capitalize()
+            formatted_name = attribut_name.capitalize()
 
-            # To erase "_" from attribut names
-            if "_" in attribut_name:
-                attribut_name = attribut_name.replace("_", " ")
+            # To erase "_"
+            if "_" in formatted_name:
+                formatted_name = formatted_name.replace("_", " ")
 
-            attributs[index] = attribut_name, attribut_value
+            # attributs[index] = attribut_name, attribut_value
+            # attributs[attribut_name] = formatted_name
+
+            original_names.append(attribut_name)
+            formatted_names.append(formatted_name)
+
+        # print(attributs)
+        attributs["original_name"] = original_names
+        attributs["formatted_name"] = formatted_names
+
+        print("attributs: ", attributs)
 
         return attributs
 

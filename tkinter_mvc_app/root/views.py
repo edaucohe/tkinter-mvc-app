@@ -28,9 +28,9 @@ class Tabs(ttk.Notebook):
         self.add(self.saved_book_tab, text="Save book")
 
         # Updated book tab
-        self.updated_books_tab = BookUpdatedTab(self)
-        self.updated_books_tab.grid(row=0, column=0, sticky="nsew")
-        self.add(self.updated_books_tab, text="Update book")
+        self.updated_book_tab = BookUpdatedTab(self)
+        self.updated_book_tab.grid(row=0, column=0, sticky="nsew")
+        self.add(self.updated_book_tab, text="Update book")
 
         # Retrieved book tab
         self.retrieved_book_tab = BookRetrievedTab(self)
