@@ -5,13 +5,14 @@ from tkinter_mvc_app.root.views import MainView
 
 
 class BookController:
-    def __init__(self, view: MainView):
+    def __init__(self, view: MainView, book: Book):
         self.view = view
         self.saved_book_button = view.gui_setup.tabs.saved_book_tab.save_button
         # self.widgets = view.gui_setup.tabs.saved_book_tab.widgets
         self.saved_book_tab = view.gui_setup.tabs.saved_book_tab
         self.bind()
         self.get_book_info = BookInputs.get_book_info
+        self.book = book
 
     def bind(self):
         # self.save_button.config(command=self.save_book)
@@ -30,7 +31,7 @@ class BookController:
             book_attributs["original_name"][6]: self.saved_book_tab.book_language_input.get(),
             book_attributs["original_name"][7]: self.saved_book_tab.number_of_pages_input.get(),
             book_attributs["original_name"][8]: self.saved_book_tab.current_page_input.get(),
-            # book_attributs["original_name"][9]: self.saved_book_tab.created_date_input.get(),
+
             book_attributs["original_name"][10]: self.saved_book_tab.purchase_date_input.get(),
             book_attributs["original_name"][11]: self.saved_book_tab.publication_date_input.get(),
             book_attributs["original_name"][12]: self.saved_book_tab.reading_date_input.get(),
@@ -39,6 +40,8 @@ class BookController:
         }
 
         print("book data: ", book_data)
+        book_deserialized = self.book.deserialize_from_user(book_data)
+        print("book deserialized: ", book_deserialized)
 
         # self.get_book_info(self.widgets)
 
