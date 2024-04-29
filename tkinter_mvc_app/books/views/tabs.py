@@ -1,4 +1,7 @@
 import tkinter as tk
+from datetime import date
+
+from tkcalendar import Calendar, DateEntry
 from tkinter import ttk
 
 from tkinter_mvc_app.books.models.models import Book
@@ -104,24 +107,30 @@ class BookSavedTab(ttk.Frame):
                                              text=book_attributs["formatted_name"][10],
                                             background="yellow")
         self.purchase_date_label.grid(row=9, column=0, sticky="nsew")
-        self.purchase_date_input = ttk.Entry(self)
+        self.purchase_date_input = DateEntry(self, selectmode="day", date_pattern="dd-mm-yyyy")  # Calendar mode
         self.purchase_date_input.grid(row=9, column=1, sticky="nsew")
+        # self.purchase_date_input = ttk.Entry(self)
+        # self.purchase_date_input.grid(row=9, column=1, sticky="nsew")
 
         # Publication date widget
         self.publication_date_label = ttk.Label(self,
                                                 text=book_attributs["formatted_name"][11],
                                                 background="red")
         self.publication_date_label.grid(row=10, column=0, sticky="nsew")
-        self.publication_date_input = ttk.Entry(self)
+        self.publication_date_input = DateEntry(self, selectmode="day", date_pattern="dd-mm-yyyy")  # Calendar mode
         self.publication_date_input.grid(row=10, column=1, sticky="nsew")
+        # self.publication_date_input = ttk.Entry(self)
+        # self.publication_date_input.grid(row=10, column=1, sticky="nsew")
 
         # Reading date widget
         self.reading_date_label = ttk.Label(self,
                                             text=book_attributs["formatted_name"][12],
                                             background="yellow")
         self.reading_date_label.grid(row=11, column=0, sticky="nsew")
-        self.reading_date_input = ttk.Entry(self)
+        self.reading_date_input = DateEntry(self, selectmode="day", date_pattern="dd-mm-yyyy")  # Calendar mode
         self.reading_date_input.grid(row=11, column=1, sticky="nsew")
+        # self.reading_date_input = ttk.Entry(self)
+        # self.reading_date_input.grid(row=11, column=1, sticky="nsew")
 
         # Already read widget
         self.already_read_label = ttk.Label(self,

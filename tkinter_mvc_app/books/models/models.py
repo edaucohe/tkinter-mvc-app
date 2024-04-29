@@ -1,7 +1,7 @@
 import dataclasses
 import inspect
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime
 from typing import List, Optional, Dict, get_type_hints, get_origin, Any
 
 from tkinter_mvc_app.books.models.my_enums import Language, Genre
@@ -10,16 +10,16 @@ from tkinter_mvc_app.helpers.const import FIRST_MEMBER_POS, ATTR_POS
 
 @dataclass
 class Book:
-    title: str
-    author: str
-    synopsis: str
-    genre: Genre
+    title: Optional[str] = "Sin título"
+    author: Optional[str] = "Desconocido"
+    synopsis: Optional[str] = "Sin sinopsis"
+    genre: Optional[Genre] = None
     publisher: str = "Desconocido"
     original_language: Optional[Language] = None
     book_language: Optional[Language] = None
     number_of_pages: Optional[int] = None
-    current_page: int = 0
-    created_date: date = date.today()
+    current_page: Optional[None] = 0
+    created_date: Optional[date] = None
     purchase_date: Optional[date] = None
     publication_date: Optional[date] = None
     reading_date: Optional[date] = None
@@ -78,6 +78,47 @@ class Book:
         new_widgets["genre"] = widgets[3][1]
 
         return cls(**new_widgets)
+
+    @classmethod
+    def deserialize_from_user(cls, book_data: Dict[str, str]) -> 'Book':
+        data = dict()
+        data["title"] = book_data["title"]
+        data["author"] = book_data["author"]
+        data["synopsis"] = book_data["synopsis"]
+        data["genre"] = None if book_data["genre"] == "" else Genre(book_data["genre"])
+        data["publisher"] = book_data["publisher"]
+        data["original_language"] = None if book_data["original_language"] == "" else Language(book_data["original_language"])
+        data["book_language"] = None if book_data["book_language"] == "" else Language(book_data["book_language"])
+        data["number_of_pages"] = cls.to_integer(book_data["number_of_pages"])
+        data["current_page"] = cls.current_page if book_data["current_page"] == "" else cls.to_integer(book_data["current_page"])
+        data["created_date"] = date.today()
+        data["purchase_date"] = cls.to_date(book_data["purchase_date"])
+        data["publication_date"] = cls.to_date(book_data["publication_date"])
+        data["reading_date"] = cls.to_date(book_data["reading_date"])
+        data["already_read"] = bool(book_data["already_read"])
+        data["is_current_book"] = bool(book_data["is_current_book"])
+
+        return cls(**data)
+
+    @staticmethod
+    def to_integer(number_as_str: str):
+        if number_as_str.isdigit():
+            return int(number_as_str)
+        else:
+            print("Data is not a number")
+            return None
+
+    @staticmethod
+    def to_date(date_as_str):
+        if date_as_str == "":
+            print("There is no date")
+            return None
+        else:
+            new_date = date_as_str.split("-")
+            new_date.reverse()
+            new_date = "-".join(new_date)
+            return date.fromisoformat(new_date)
+
 
 
 

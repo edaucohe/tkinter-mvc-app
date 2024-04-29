@@ -5,10 +5,10 @@ from tkinter_mvc_app.root.views import MainView
 
 
 class Controller:
-    def __init__(self, view: MainView):
+    def __init__(self, view: MainView, book: Book):
         self.view = view
-        # self.model = model
-        self.book_controller = BookController(view)
+        self.book = book
+        self.book_controller = BookController(view, book)
 
     def run(self):
         self.view.run_mainloop()
