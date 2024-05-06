@@ -82,11 +82,11 @@ class Book:
     @classmethod
     def deserialize_from_user(cls, book_data: Dict[str, str]) -> 'Book':
         data = dict()
-        data["title"] = book_data["title"]
-        data["author"] = book_data["author"]
-        data["synopsis"] = book_data["synopsis"]
+        data["title"] = cls.title if book_data["title"] == "" else book_data["title"]
+        data["author"] = cls.author if book_data["author"] == "" else book_data["author"]
+        data["synopsis"] = cls.synopsis if book_data["synopsis"] == "" else book_data["synopsis"]
         data["genre"] = None if book_data["genre"] == "" else Genre(book_data["genre"])
-        data["publisher"] = book_data["publisher"]
+        data["publisher"] = cls.publisher if book_data["publisher"] == "" else book_data["publisher"]
         data["original_language"] = None if book_data["original_language"] == "" else Language(book_data["original_language"])
         data["book_language"] = None if book_data["book_language"] == "" else Language(book_data["book_language"])
         data["number_of_pages"] = cls.to_integer(book_data["number_of_pages"])
@@ -114,7 +114,7 @@ class Book:
             print("There is no date")
             return None
         else:
-            new_date = date_as_str.split("-")
+            new_date = date_as_str.split("/")
             new_date.reverse()
             new_date = "-".join(new_date)
             return date.fromisoformat(new_date)
